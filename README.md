@@ -6,7 +6,7 @@ Java Bootcamp.
 ### Overview
 
 ### Technologies Used
-*Java
-*Eclipse
-*Git
-*Atom
+* Java
+* Eclipse
+* Git
+* Atom
