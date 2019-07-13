@@ -14,7 +14,7 @@ Change is then calculated and provided in largest denominations possible.
 ### Technologies Used
 * Java
 * Eclipse
-* Git
+* Git / GitHub
 * Atom
 
 
