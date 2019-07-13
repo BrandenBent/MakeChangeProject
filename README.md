@@ -21,8 +21,12 @@ Change is then calculated and provided in largest denominations possible.
 ### Lessons Learned
 * Sending arguments through methods
 
+* Encasing methods in loops to run a program multiple times and exit when certain conditions are met
+
 * Correcting precision when dealing with double variables, and printing out with  desired significant figures
 
 * Casting variables to different data types in order to do different calculations
 
 * Creating and pushing files and GitHub
+
+* Use of System.exit(0); to terminate program under certain conditions
