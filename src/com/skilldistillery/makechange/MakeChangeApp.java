@@ -45,7 +45,7 @@ public class MakeChangeApp {
 			System.out.println("You didn't give the cashier enough money and were forcibly removed");
 		}
 		else {
-			System.out.println("Your change is " + change);
+			System.out.printf("Your change is $%.2f\n", change);
 		}
 		
 		if (change >= 20.00) {
