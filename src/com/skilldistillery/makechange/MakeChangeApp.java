@@ -14,16 +14,10 @@ public class MakeChangeApp {
 		cashPaid = askPay();
 		System.out.printf("You hand the cashier $" + cashPaid + "\n");
 		makeChange(cashPaid, itemPrice);
-//		makeCoinage(change);
 
 		sc.close();
 	} // END MAIN
 
-	public static double makeCoinage(double change) {
-		System.out.println("test");
-		return change;
-		
-	}
 
 	public static double askPay() {
 		double cashPaid = 0.0;
@@ -43,13 +37,15 @@ public class MakeChangeApp {
 	} // END ITEMPRICE();
 
 	public static double makeChange(double cashPaid, double itemPrice) {
-		double change = cashPaid - itemPrice;
+		double change = cashPaid - itemPrice +0.0005;
 		if (change == 0) {
 			System.out.println("Paid Exact Amount, No Change Provided");
 
-		} else {
+		} else if (change < 0) {
+			System.out.println("You didn't give the cashier enough money and were forcibly removed");
+		}
+		else {
 			System.out.println("Your change is " + change);
-			// this fixes any rounding errors down the line, particularly when dealing with the smaller coins
 		}
 		
 		if (change >= 20.00) {
@@ -72,28 +68,31 @@ public class MakeChangeApp {
 			int oneBill = (int)(change/1.00);
 			System.out.println("Here is " + oneBill + " one dollar bill" +"(" + "s" + ")");
 			change -= oneBill*1;
+		} else {
+//			change = change + 0.0005;
 		}
-//		if (change >= 0.25) {
-//			double twentyFiveCoin = (double)(change/0.25);
-//			System.out.println("Here is " + twentyFiveCoin + " quarter" +"(" + "s" + ")");
-//			change -= twentyFiveCoin*0.25 +0.0001;
-//		}
-//		if (change >= 0.10) {
-//			double tenCoin = (double)(change/0.10);
-//			System.out.println("Here is " + tenCoin + " dime" +"(" + "s" + ")");
-//			change -= tenCoin*0.10 +0.0001;
-//		}
-//		if (change >= 0.05) {
-//			double fiveCoin = (double)(change/0.05);
-//			System.out.println("Here is " + fiveCoin + " nickel" +"(" + "s" + ")");
-//			change -= fiveCoin*0.05 +0.0001;
-//		}
-//		
-//		if (change >= 0.01) {
-//			double oneCoin = (double)(change/0.05);
-//			System.out.println("Here is " + oneCoin + " penny" +"(" + "s" + ")");
-//			change -= oneCoin*0.05 +0.0001;
-//		}
+		
+		if (change >= 0.25) {
+			double twentyFiveCoin = (int)(change/0.25);
+			System.out.println("Here is " + twentyFiveCoin + " quarter" +"(" + "s" + ")");
+			change -= twentyFiveCoin*0.25;
+		}
+		if (change >= 0.10) {
+			double tenCoin = (int)(change/0.10);
+			System.out.println("Here is " + tenCoin + " dime" +"(" + "s" + ")");
+			change -= tenCoin*0.10;
+		}
+		if (change >= 0.05) {
+			double fiveCoin = (int)(change/0.05);
+			System.out.println("Here is " + fiveCoin + " nickel" +"(" + "s" + ")");
+			change -= fiveCoin*0.05;
+		}
+		
+		if (change >= 0.01) {
+			int oneCoin = (int)(change/0.01);
+			System.out.println("Here is " + oneCoin + " penny" +"(" + "s" + ")");
+			change -= oneCoin*0.01;
+		}
 //		
 		return change;
 	} // END MAKECHANGE();
