@@ -10,9 +10,9 @@ public class MakeChangeApp {
 		double cashPaid = 0.0;
 		double itemPrice = 0.0;
 
+		itemPrice = itemPrice();
 		cashPaid = askPay();
 		System.out.printf("You hand the cashier $" + cashPaid + "\n");
-		itemPrice = itemPrice();
 		makeChange(cashPaid, itemPrice);
 
 	sc.close();
@@ -37,16 +37,13 @@ public class MakeChangeApp {
 
 	public static double makeChange(double cashPaid, double itemPrice) {
 		double change = cashPaid - itemPrice;
-		
 		if (change == 0) {
-			System.out.println("Paid Exact Amount");
+			System.out.println("Paid Exact Amount, No Change Provided");
 			
 		} else {
 			System.out.println("Your change is " + change);
 			
 		}
-			
-		
 		return change;
 		
 	}
