@@ -12,7 +12,7 @@ public class MakeChangeApp {
 
 		itemPrice = itemPrice();
 		cashPaid = askPay();
-		System.out.printf("You hand the cashier $" + cashPaid + "\n");
+		System.out.println("You hand the cashier $" + cashPaid + "\n");
 		makeChange(cashPaid, itemPrice);
 
 		sc.close();
@@ -37,6 +37,8 @@ public class MakeChangeApp {
 	} // END ITEMPRICE();
 
 	public static double makeChange(double cashPaid, double itemPrice) {
+		// adding .0005 prevents rounding error when dealing with 
+		// doubles under 1.00
 		double change = cashPaid - itemPrice +0.0005;
 		if (change == 0) {
 			System.out.println("Paid Exact Amount, No Change Provided");
@@ -73,17 +75,17 @@ public class MakeChangeApp {
 		}
 		
 		if (change >= 0.25) {
-			double twentyFiveCoin = (int)(change/0.25);
+			int twentyFiveCoin = (int)(change/0.25);
 			System.out.println("Here is " + twentyFiveCoin + " quarter" +"(" + "s" + ")");
 			change -= twentyFiveCoin*0.25;
 		}
 		if (change >= 0.10) {
-			double tenCoin = (int)(change/0.10);
+			int tenCoin = (int)(change/0.10);
 			System.out.println("Here is " + tenCoin + " dime" +"(" + "s" + ")");
 			change -= tenCoin*0.10;
 		}
 		if (change >= 0.05) {
-			double fiveCoin = (int)(change/0.05);
+			int fiveCoin = (int)(change/0.05);
 			System.out.println("Here is " + fiveCoin + " nickel" +"(" + "s" + ")");
 			change -= fiveCoin*0.05;
 		}
